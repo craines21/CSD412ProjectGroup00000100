@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CSD412ProjectGroup00000100.Models.Poll>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Your Polls</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.PollId">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.PollId">| Delete</a> 
+                @if (item.State == false)
+                {
+                  <a asp-controller="Items" asp-action="Create" asp-route-pollId="@item.PollId">| Add Item</a> 
+                  <a asp-controller="Polls" asp-action="State" asp-route-id="@item.PollId">| change state</a>
+                  <a asp-controller="Polls" asp-action="Edit" asp-route-id="@item.PollId">| Edit</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@model CSD412ProjectGroup00000100.Models.Item
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Poll)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Poll.PollId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ColorValue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ColorValue)
+            
+        </dd>
+
+        </dl>
+    </div>
+    <div>
+        <a asp-controller="Polls" asp-action="Details" asp-route-id="@Model.PollId">Back to Poll</a> 
+    </div>

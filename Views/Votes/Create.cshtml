@@ -1,0 +1,33 @@
+﻿@model CSD412ProjectGroup00000100.Models.Vote
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Vote</h1>
+
+<h4>Vote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemId" class="control-label"></label>
+                <input readonly asp-for="ItemId" class="form-control" value=@ViewData["ItemId"]>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Vote" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Polls" asp-action="AllPolls">Back to All Polls</a> |
+    <a asp-controller="Polls" asp-action="Index">Back to My Polls</a> 
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
